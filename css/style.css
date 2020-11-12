@@ -5,15 +5,16 @@
 }
 .sidebar{
     width: 100px;
-    height: 1000px;
+    height: 3000px;
     position: fixed;
-    background: rgb(172, 176, 179);
+    background: rgb(198, 218, 231);
     padding: 8px;
+    box-shadow: 5px 10px #fffc;
 }
 .sidebar ul{
     float: left;
     list-style-type: none ;
-    margin-top: 25px;
+    margin-top: 50px;
     margin-left: 0px;
 }
 .sidebar ul li{
@@ -24,12 +25,10 @@
     text-decoration: none;
     color: #000;
     padding: 5px 10px;
-    border: 0.5px solid #000;
     transition: 0.4s ease;
 }
 .sidebar li a:hover{
-    background-color: #000;
-    color: #fff;
+    color: #ff5252;
 }
 .sidebar img{
     width: 15;
@@ -38,6 +37,7 @@
 .topbar{
     background: #eeeeee56;
     padding: 30px;
+    box-shadow: 5px 10px #fffc;
 }
 .topbar ul{
     float: right;
@@ -52,19 +52,17 @@
     text-decoration: none;
     color: #000;
     padding: 5px 10px;
-    border: 0.5px solid #000;
     transition: 0.4s ease;
 }
 .topbar li a:hover{
-    background-color: #000;
-    color: #fff;
+    color: #ff5252;
 }
 .topbar li b{
     text-decoration: none;
     color: rgb(62, 104, 241);
     padding: 5px 10px;
-    border: 0.5px solid #eeeeee56;
     transition: 0.4s ease;
+	border-radius:16px;
 }
 .topbar li b:hover{
     color: rgb(62, 104, 241);
@@ -73,10 +71,10 @@
 .topbar li c{
     text-decoration: none;
     color: #fff;
-    background-color: blue;
+    background-color: #03a9f4;
     padding: 5px 10px;
-    border: 0.5px solid rgb(0, 0, 255);
     transition: 0.4s ease;
+	border-radius:16px;
 }
 .topbar li c:hover{
     color: rgb(255,255,255);
@@ -88,10 +86,10 @@
     margin-left: 100px;
 }
 h2{
-    margin-left: 140px;
+    margin-left: 230px;
     margin-top: 20px;
 }
 .topbar img{
-    width: 40;
+    width: 20;
     height: 20;
 }

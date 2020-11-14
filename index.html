@@ -8,10 +8,10 @@
 	
         <div class="sidebar">
             <ul class="main">
-				<li><a href="#"> <img src="./assets/list.png"> List</a></li>
-				<li><a href="#"><img src="./assets/Add.png"> add</a></li>
-				<li><a href="#"><img src="./assets/edit.png"> Edit</a></li>
-				<li><a href="#"><img src="./assets/delete.png"> Delete</a></li>
+				<li><a onclick="" href="#"> <img src="./assets/list.png"> List</a></li>
+				<li><a onclick="createGreetingForm()"><img src="./assets/Add.png"> add</a></li>
+				<li><a onclick="editGreetingForm()" href="#"><img src="./assets/edit.png"> Edit</a></li>
+				<li><a onclick="deleteGreetingForm()" href="#"><img src="./assets/delete.png"> Delete</a></li>
 				
 			</ul>
 		</div>   
@@ -28,7 +28,7 @@
 			</ul>
 		</div>
 	</header>
-	<h2>
+	<h2 class="layoutTitle" >
 		Basic panels layout
 	</h2>>
 	
@@ -41,7 +41,6 @@ Name:</textarea>
 Name: </textarea>
 			<textarea name="G3" rows="2" cols="3">Message: 
 Name: </textarea>
-
 			<textarea name="G4" rows="2" cols="3">Message: 
 Name: </textarea>
 			<textarea name="G5" rows="2" cols="3">Message: 
@@ -54,9 +53,55 @@ Name: </textarea>
 Name: </textarea>
 			<textarea name="G9" rows="2" cols="3">Message: 
 Name: </textarea>
-
 		</ul>
-	</div>>
+	</div>
+	
+	<div class="form-popup1" id="createGreeting">
+		<form class="form-container">
+		  <h3>Create Greeting</h3>
+
+		  <label for="name"><b>Name:</b></label>
+		  <input type="text" placeholder="Enter Name" name="name:" required>
+	  
+		  <label for="message"><b>Message:</b></label>
+		  <input type="text" placeholder="Enter Message" name="message:" required>
+	  
+		  <button type="submit" class="btn">Create Greeting</button>
+		  <button type="button" class="btn cancel" onclick="closeForm()">Close</button>
+		</form>
+	  </div>
+	  
+	  <div class="form-popup2" id="editGreeting">
+		<form class="form-container">
+		  <h3>Edit Greeting</h3>
+
+		  <label for="GreetingID"><b>GreetingID:</b></label>
+		  <input type="text" placeholder="Enter GreetingID" name="GreetingID:" required>
+
+		  <label for="name"><b>Name:</b></label>
+		  <input type="text" placeholder="Enter Name" name="name:" required>
+	  
+		  <label for="message"><b>Message:</b></label>
+		  <input type="text" placeholder="Enter Message" name="message:" required>
+	  
+		  <button type="submit" class="btn">Create Greeting</button>
+		  <button type="button" class="btn cancel" onclick="closeForm()">Close</button>
+		</form>
+	  </div>
+
+	  <div class="form-popup3" id="deleteGreeting">
+		<form class="form-container">
+		  <h3>Delete Greeting</h3>
+
+		  <label for="GreetingID"><b>GreetingID:</b></label>
+		  <input type="text" placeholder="Enter GreetingID" name="GreetingID:" required>
+	  
+		  <button type="submit" class="btn">Delete Greeting</button>
+		  <button type="button" class="btn cancel" onclick="closeForm()">Close</button>
+		</form>
+	  </div>
+
+	<script src="app.js"></script>
 	
 </body>
 </html>

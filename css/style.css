@@ -4,8 +4,8 @@
     font-family: Arial, Helvetica, sans-serif;
 }
 .sidebar{
-    width: 100px;
-    height: 3000px;
+    width: 8%;
+    height: 100%;
     position: fixed;
     background: rgb(198, 218, 231);
     padding: 8px;
@@ -24,6 +24,7 @@
 .sidebar li a{
     text-decoration: none;
     color: #000;
+    cursor: pointer;
     padding: 5px 10px;
     transition: 0.4s ease;
 }
@@ -85,7 +86,7 @@
     float: left;
     margin-left: 100px;
 }
-h2{
+.layoutTitle{
     margin-left: 230px;
     margin-top: 15px;
 }
@@ -101,13 +102,76 @@ h2{
 
 textarea {
     margin-left: 13px;
-    margin-top: 10px;
-    margin-bottom: 10px;
+    margin-top: 8px;
+    margin-bottom: 8px;
     margin-right: 13px;
     padding: 10px;
-    line-height: 3.5;
-    width: 230;
+    line-height: 3.2;
+    width: 200;
     border-radius: 5px;
     border: 1px solid #ccc;
     box-shadow: 2px 2px 2px #999;
 }
+/* Popup Window Code*/
+.form-popup1 {
+  display: none;
+  position: fixed;
+  bottom: 100px;
+  left: 120px;
+  border: 3px solid #f1f1f1;
+  z-index: 9;
+}
+.form-popup2 {
+    display: none;
+    position: fixed;
+    bottom: 55px;
+    left: 120px;
+    border: 3px solid #f1f1f1;
+    z-index: 9;
+  }
+  .form-popup3 {
+    display: none;
+    position: fixed;
+    bottom: 200px;
+    left: 120px;
+    border: 3px solid #f1f1f1;
+    z-index: 9;
+  }
+.form-container {
+  max-width: 320px;
+  padding: 10px;
+  background-color: white;
+}
+.form-container h3{
+    color: #1a237e;
+    background-color: #fff9c4;
+    
+}
+.form-container input[type=text] {
+  width: 100%;
+  padding: 15px;
+  margin: 5px 0 22px 0;
+  border: none;
+  background: #f1f1f1;
+}
+.form-container input[type=text]:focus {
+  background-color: #ddd;
+  outline: none;
+}
+.form-container .btn {
+  background-color: #81c784;
+  color: white;
+  padding: 16px 20px;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+  margin-bottom:10px;
+  opacity: 0.8;
+}
+.form-container .cancel {
+  background-color: #f44336;
+}
+.form-container .btn:hover, .open-button:hover {
+  opacity: 1;
+}
+

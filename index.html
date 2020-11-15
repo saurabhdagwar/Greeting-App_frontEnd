@@ -3,16 +3,15 @@
 <head>
 	<title>Greeting-App</title>
 	<link rel="stylesheet" type="text/css" href="css/style.css">
+	<link href="https://requirejs.org/docs/release/2.3.5/minified/require.js">
 </head>
 <body>
-	
         <div class="sidebar">
             <ul class="main">
-				<li><a onclick="" href="#"> <img src="./assets/list.png"> List</a></li>
+				<li><a onclick="getGreeting()" > <img src="./assets/list.png"> List</a></li>
 				<li><a onclick="createGreetingForm()"><img src="./assets/Add.png"> add</a></li>
 				<li><a onclick="editGreetingForm()" href="#"><img src="./assets/edit.png"> Edit</a></li>
-				<li><a onclick="deleteGreetingForm()" href="#"><img src="./assets/delete.png"> Delete</a></li>
-				
+				<li><a onclick="deleteGreetingForm()" href="#"><img src="./assets/delete.png"> Delete</a></li>	
 			</ul>
 		</div>   
 		<header>
@@ -101,7 +100,7 @@ Name: </textarea>
 		</form>
 	  </div>
 
-	<script src="app.js"></script>
+	<script src='./src/app.js'> </script>
 	
 </body>
 </html>

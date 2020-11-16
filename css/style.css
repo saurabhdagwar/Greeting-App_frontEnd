@@ -99,6 +99,7 @@
 }
 .card{
     margin-left: 0%;
+    float: left;
 }
 textarea {
     margin-left: 8px;

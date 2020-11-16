@@ -2,7 +2,6 @@
 const fetch = require('node-fetch');
 const localhost = `http://localhost:4000/greeting`;
 
-
  createGreetingForm = () => {
     document.getElementById("createGreeting").style.display = "block";
     document.getElementById("editGreeting").style.display = "none";
@@ -39,7 +38,6 @@ Created on:- ${post.createdAt}</textarea>
   postsCards.innerHTML = output;
   }
 
-  
    getGreeting = () => {
     fetch(localhost)
       .then((response) => response.json())
@@ -48,7 +46,6 @@ Created on:- ${post.createdAt}</textarea>
       .catch(err => {
         return err
       })
-      console.log(cards);
   }
 
 

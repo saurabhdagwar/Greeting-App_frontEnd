@@ -87,31 +87,35 @@
     margin-left: 100px;
 }
 .layoutTitle{
-    margin-left: 230px;
+    margin-left: 200px;
     margin-top: 15px;
 }
 .topbar img{
     width: 20;
     height: 20;
 }
-
-.Greetings{
-    margin-left: 270px;
-    margin-right: 180px ;
+.posts-cards{
+    margin-left: 20%;
 }
-
+.card{
+    margin-left: 0%;
+}
 textarea {
-    margin-left: 13px;
+    margin-left: 8px;
     margin-top: 8px;
     margin-bottom: 8px;
-    margin-right: 13px;
+    margin-right: 8px;
     padding: 10px;
-    line-height: 3.2;
-    width: 200;
-    border-radius: 5px;
+    line-height: 180%;
+    width: 250;
+    height: 130;
+    font-size: 12;
+    border-radius: 10px;
+    font-family: 'Times New Roman', Times, serif;
     border: 1px solid #ccc;
-    box-shadow: 2px 2px 2px #999;
+    box-shadow: 3px 3px 3px #999;
 }
+
 /* Popup Window Code*/
 .form-popup1 {
   display: none;

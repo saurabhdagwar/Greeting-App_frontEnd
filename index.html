@@ -9,20 +9,20 @@
             <ul class="main">
 				<li><a onclick="getGreeting()" > <img src="./assets/list.png"> List</a></li>
 				<li><a onclick="createGreetingForm()"><img src="./assets/Add.png"> add</a></li>
-				<li><a onclick="editGreetingForm()" href="#"><img src="./assets/edit.png"> Edit</a></li>
-				<li><a onclick="deleteGreetingForm()" href="#"><img src="./assets/delete.png"> Delete</a></li>	
+				<li><a onclick="editGreetingForm()" ><img src="./assets/edit.png"> Edit</a></li>
+				<li><a onclick="deleteGreetingForm()" ><img src="./assets/delete.png"> Delete</a></li>	
 			</ul>
 		</div>   
 		<header>
         <div  class="topbar" >
 			<h3>Greeting-App </h3>
 			<ul class="main">
-				<li><a href="#"> <img src="./assets/notification.png" > </a></li>
-				<li><a href="#"><img src="./assets/message.png"></a></li>
-				<li><a href="#"><img src="./assets/setting.png">Support</a></li>
-				<li><a href="#"><img src="./assets/tools.png">Tools</a></li>
-				<li><b href="#">Sign In</b></li>
-				<li><c href="#">Sign Up</c></li>
+				<li><a > <img src="./assets/notification.png" > </a></li>
+				<li><a ><img src="./assets/message.png"></a></li>
+				<li><a ><img src="./assets/setting.png">Support</a></li>
+				<li><a ><img src="./assets/tools.png">Tools</a></li>
+				<li><a class="signin" ><b>Sign In</a></li>
+				<li><a class="signup" >Sign Up</b></a></li>
 			</ul>
 		</div>
 	</header>
@@ -33,45 +33,45 @@
 	<div class="posts-cards" id="postsCards"></div>
 
 	 
-	<div class="form-popup1" id="createGreeting">
+	<div class="form-popup" id="createGreeting">
 		<form class="form-container">
 		  <h3>Create Greeting</h3>
 
 		  <label for="name"><b>Name:</b></label>
-		  <input type="text" placeholder="Enter Name" name="name:" id="createGreetingName" required >
+		  <input type="text" placeholder="Enter Name" name="name" id="createGreetingName" required >
 	  
 		  <label for="message"><b>Message:</b></label>
-		  <input type="text" placeholder="Enter Message" name="message:" id="createGreetingMessage" required>
+		  <input type="text" placeholder="Enter Message" name="message" id="createGreetingMessage" required>
 	  
 		  <button type="submit" class="btn" onclick="postGreeting()">Create Greeting</button>
 		  <button type="button" class="btn cancel" onclick="closeForm()">Close</button>
 		</form>
 	  </div>
 	  
-	  <div class="form-popup2" id="editGreeting">
+	  <div class="form-popup" id="editGreeting">
 		<form class="form-container">
 		  <h3>Edit Greeting</h3>
 
 		  <label for="GreetingID"><b>GreetingID:</b></label>
-		  <input type="text" placeholder="Enter GreetingID" name="GreetingID:" id="editGreetingID" required>
+		  <input type="text" placeholder="Enter GreetingID" id="editGreetingID" required>
 
 		  <label for="name"><b>Name:</b></label>
-		  <input type="text" placeholder="Enter Name" name="name:" id="editGreetingName" required>
+		  <input type="text" placeholder="Enter Name" name="name" id="editGreetingName" required>
 	  
 		  <label for="message"><b>Message:</b></label>
-		  <input type="text" placeholder="Enter Message" name="message:" id="editGreetingMessage" required>
+		  <input type="text" placeholder="Enter Message" name="message" id="editGreetingMessage" required>
 	  
 		  <button type="submit" class="btn" onclick="putGreeting()" >Update Greeting</button>
 		  <button type="button" class="btn cancel" onclick="closeForm()">Close</button>
 		</form>
 	  </div>
 
-	  <div class="form-popup3" id="deleteGreeting">
+	  <div class="form-popup" id="deleteGreeting">
 		<form class="form-container">
 		  <h3>Delete Greeting</h3>
 
 		  <label for="GreetingID"><b>GreetingID:</b></label>
-		  <input type="text" placeholder="Enter GreetingID" name="GreetingID:" id="deleteGreetingID" required>
+		  <input type="text" placeholder="Enter GreetingID" id="deleteGreetingID" required>
 	  
 		  <button type="submit" onclick="deleteGreeting()" class="btn">Delete Greeting</button>
 		  <button type="button" class="btn cancel" onclick="closeForm()">Close</button>

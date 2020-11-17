@@ -58,18 +58,18 @@
 .topbar li a:hover{
     color: #ff5252;
 }
-.topbar li b{
+.signin{
     text-decoration: none;
     color: rgb(62, 104, 241);
     padding: 5px 10px;
     transition: 0.4s ease;
 	border-radius:16px;
 }
-.topbar li b:hover{
+.signin:hover{
     color: rgb(62, 104, 241);
     background-color: rgb(156, 156, 158);
 }
-.topbar li c{
+.signup{
     text-decoration: none;
     color: #fff;
     background-color: #03a9f4;
@@ -77,7 +77,7 @@
     transition: 0.4s ease;
 	border-radius:16px;
 }
-.topbar li c:hover{
+.signup:hover{
     color: rgb(255,255,255);
     background-color: rgb(80, 80, 255);
 }
@@ -117,48 +117,33 @@ textarea {
     box-shadow: 3px 3px 3px #999;
 }
 
-.form-popup1 {
-  display: none;
-  position: fixed;
-  top: 70px;
-  left: 120px;
-  border: 3px solid #f1f1f1;
-  z-index: 9;
+.form-popup {
+    display: none;
+    position: fixed;
+    top: 15%;
+    left: 35%;
+    border: 3px solid #f1f1f1;
+    z-index: 9;
 }
-.form-popup2 {
-    display: none;
-    position: fixed;
-    top: 70px;
-    left: 120px;
-    border: 3px solid #f1f1f1;
-    z-index: 9;
-  }
-  .form-popup3 {
-    display: none;
-    position: fixed;
-    top: 70px;
-    left: 120px;
-    border: 3px solid #f1f1f1;
-    z-index: 9;
-  }
 .form-container {
-  max-width: 320px;
+  max-width: 400px;
   padding: 10px;
   background-color: white;
+  
 }
 .form-container h3{
     color: #1a237e;
     background-color: #fff9c4;
     
 }
-.form-container input[type=text] {
+.form-container input {
   width: 100%;
   padding: 15px;
   margin: 5px 0 22px 0;
   border: none;
   background: #f1f1f1;
 }
-.form-container input[type=text]:focus {
+.form-container input:focus {
   background-color: #ddd;
   outline: none;
 }

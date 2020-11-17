@@ -32,8 +32,8 @@
     color: #ff5252;
 }
 .sidebar img{
-    width: 15;
-    height: 15;
+    width: 15px;
+    height: 15px;
 }
 .topbar{
     background: #eeeeee56;
@@ -98,7 +98,6 @@
     margin-left: 20%;
 }
 .card{
-    margin-left: 0%;
     float: left;
 }
 textarea {
@@ -107,7 +106,8 @@ textarea {
     margin-bottom: 8px;
     margin-right: 8px;
     padding: 10px;
-    line-height: 180%;
+    line-height: 18
+    0%;
     width: 250;
     height: 130;
     font-size: 12;
@@ -117,7 +117,6 @@ textarea {
     box-shadow: 3px 3px 3px #999;
 }
 
-/* Popup Window Code*/
 .form-popup1 {
   display: none;
   position: fixed;

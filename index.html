@@ -32,50 +32,11 @@
 	
 	<div class="posts-cards" id="postsCards"></div>
 
-	 
-	<div class="form-popup" id="createGreeting">
+	<div class="form-popup" id="greeting">
 		<form class="form-container">
-		  <h3>Create Greeting</h3>
+			<div id="greetingWindow"></div>
 
-		  <label for="name"><b>Name:</b></label>
-		  <input type="text" placeholder="Enter Name" name="name" id="createGreetingName" required >
-	  
-		  <label for="message"><b>Message:</b></label>
-		  <input type="text" placeholder="Enter Message" name="message" id="createGreetingMessage" required>
-	  
-		  <button type="submit" class="btn" onclick="postGreeting()">Create Greeting</button>
-		  <button type="button" class="btn cancel" onclick="closeForm()">Close</button>
 		</form>
-	  </div>
-	  
-	  <div class="form-popup" id="editGreeting">
-		<form class="form-container">
-		  <h3>Edit Greeting</h3>
-
-		  <label for="GreetingID"><b>GreetingID:</b></label>
-		  <input type="text" placeholder="Enter GreetingID" id="editGreetingID" required>
-
-		  <label for="name"><b>Name:</b></label>
-		  <input type="text" placeholder="Enter Name" name="name" id="editGreetingName" required>
-	  
-		  <label for="message"><b>Message:</b></label>
-		  <input type="text" placeholder="Enter Message" name="message" id="editGreetingMessage" required>
-	  
-		  <button type="submit" class="btn" onclick="putGreeting()" >Update Greeting</button>
-		  <button type="button" class="btn cancel" onclick="closeForm()">Close</button>
-		</form>
-	  </div>
-
-	  <div class="form-popup" id="deleteGreeting">
-		<form class="form-container">
-		  <h3>Delete Greeting</h3>
-
-		  <label for="GreetingID"><b>GreetingID:</b></label>
-		  <input type="text" placeholder="Enter GreetingID" id="deleteGreetingID" required>
-	  
-		  <button type="submit" onclick="deleteGreeting()" class="btn">Delete Greeting</button>
-		  <button type="button" class="btn cancel" onclick="closeForm()">Close</button>
-		</form> 
 	  </div>
 
 	<script src='./src/app.js'> </script>

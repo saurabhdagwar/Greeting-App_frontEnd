@@ -1,140 +1,137 @@
-*{
-    margin: 0;
-    padding: 0;
-    font-family: Arial, Helvetica, sans-serif;
+* {
+  margin: 0;
+  padding: 0;
+  font-family: Arial, Helvetica, sans-serif;
 }
-.sidebar{
-    width: 8%;
-    height: 100%;
-    position: fixed;
-    background: rgb(198, 218, 231);
-    padding: 8px;
-    box-shadow: 5px 10px #fffc;
+.sidebar {
+  width: 8%;
+  height: 100%;
+  position: fixed;
+  background: rgb(198, 218, 231);
+  padding: 8px;
+  box-shadow: 5px 10px #fffc;
 }
-.sidebar ul{
-    float: left;
-    list-style-type: none ;
-    margin-top: 50px;
-    margin-left: 0px;
+.sidebar ul {
+  float: left;
+  list-style-type: none;
+  margin-top: 50px;
+  margin-left: 0px;
 }
-.sidebar ul li{
-    display: inline-flex;
-    margin: 2px;
+.sidebar ul li {
+  display: inline-flex;
+  margin: 2px;
 }
-.sidebar li a{
-    text-decoration: none;
-    color: #000;
-    cursor: pointer;
-    padding: 5px 10px;
-    transition: 0.4s ease;
+.sidebar li a {
+  text-decoration: none;
+  color: #000;
+  cursor: pointer;
+  padding: 5px 10px;
+  transition: 0.4s ease;
 }
-.sidebar li a:hover{
-    color: #ff5252;
+.sidebar li a:hover {
+  color: #ff5252;
 }
-.sidebar img{
-    width: 15px;
-    height: 15px;
+.sidebar img {
+  width: 15px;
+  height: 15px;
 }
-.topbar{
-    background: #eeeeee56;
-    padding: 30px;
-    box-shadow: 5px 10px #fffc;
+.topbar {
+  background: #eeeeee56;
+  padding: 30px;
+  box-shadow: 5px 10px #fffc;
 }
-.topbar ul{
-    float: right;
-    list-style-type: none;
-    margin-bottom: 10px;
-    margin-right: 25px;
+.topbar ul {
+  float: right;
+  list-style-type: none;
+  margin-bottom: 10px;
+  margin-right: 25px;
 }
-.topbar li{
-    display: inline-block;
+.topbar li {
+  display: inline-block;
 }
-.topbar li a{
-    text-decoration: none;
-    color: #000;
-    padding: 5px 10px;
-    transition: 0.4s ease;
+.topbar li a {
+  text-decoration: none;
+  color: #000;
+  padding: 5px 10px;
+  transition: 0.4s ease;
 }
-.topbar li a:hover{
-    color: #ff5252;
+.topbar li a:hover {
+  color: #ff5252;
 }
-.signin{
-    text-decoration: none;
-    color: rgb(62, 104, 241);
-    padding: 5px 10px;
-    transition: 0.4s ease;
-	border-radius:16px;
+.signin {
+  text-decoration: none;
+  color: rgb(62, 104, 241);
+  padding: 5px 10px;
+  transition: 0.4s ease;
+  border-radius: 16px;
 }
-.signin:hover{
-    color: rgb(62, 104, 241);
-    background-color: rgb(156, 156, 158);
+.signin:hover {
+  color: rgb(62, 104, 241);
+  background-color: rgb(156, 156, 158);
 }
-.signup{
-    text-decoration: none;
-    color: #fff;
-    background-color: #03a9f4;
-    padding: 5px 10px;
-    transition: 0.4s ease;
-	border-radius:16px;
+.signup {
+  text-decoration: none;
+  color: #fff;
+  background-color: #03a9f4;
+  padding: 5px 10px;
+  transition: 0.4s ease;
+  border-radius: 16px;
 }
-.signup:hover{
-    color: rgb(255,255,255);
-    background-color: rgb(80, 80, 255);
+.signup:hover {
+  color: rgb(255, 255, 255);
+  background-color: rgb(80, 80, 255);
 }
 
-.topbar h3{
-    float: left;
-    margin-left: 100px;
+.topbar h3 {
+  float: left;
+  margin-left: 100px;
 }
-.layoutTitle{
-    margin-left: 200px;
-    margin-top: 15px;
+.layoutTitle {
+  margin-left: 200px;
+  margin-top: 15px;
 }
-.topbar img{
-    width: 20;
-    height: 20;
+.topbar img {
+  width: 20;
+  height: 20;
 }
-.posts-cards{
-    margin-left: 20%;
+.posts-cards {
+  margin-left: 20%;
 }
-.card{
-    float: left;
+.card {
+  float: left;
 }
 textarea {
-    margin-left: 8px;
-    margin-top: 8px;
-    margin-bottom: 8px;
-    margin-right: 8px;
-    padding: 10px;
-    line-height: 18
-    0%;
-    width: 250;
-    height: 130;
-    font-size: 12;
-    border-radius: 10px;
-    font-family: 'Times New Roman', Times, serif;
-    border: 1px solid #ccc;
-    box-shadow: 3px 3px 3px #999;
+  margin-left: 8px;
+  margin-top: 8px;
+  margin-bottom: 8px;
+  margin-right: 8px;
+  padding: 10px;
+  line-height: 18 0%;
+  width: 250;
+  height: 130;
+  font-size: 12;
+  border-radius: 10px;
+  font-family: "Times New Roman", Times, serif;
+  border: 1px solid #ccc;
+  box-shadow: 3px 3px 3px #999;
 }
 
 .form-popup {
-    display: none;
-    position: fixed;
-    top: 15%;
-    left: 35%;
-    border: 3px solid #f1f1f1;
-    z-index: 9;
+  display: none;
+  position: fixed;
+  top: 15%;
+  left: 35%;
+  border: 3px solid #f1f1f1;
+  z-index: 9;
 }
 .form-container {
   max-width: 400px;
   padding: 10px;
   background-color: white;
-  
 }
-.form-container h3{
-    color: #1a237e;
-    background-color: #fff9c4;
-    
+.form-container h3 {
+  color: #1a237e;
+  background-color: #fff9c4;
 }
 .form-container input {
   width: 100%;
@@ -154,13 +151,13 @@ textarea {
   border: none;
   cursor: pointer;
   width: 100%;
-  margin-bottom:10px;
+  margin-bottom: 10px;
   opacity: 0.8;
 }
 .form-container .cancel {
   background-color: #f44336;
 }
-.form-container .btn:hover, .open-button:hover {
+.form-container .btn:hover,
+.open-button:hover {
   opacity: 1;
 }
-

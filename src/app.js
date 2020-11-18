@@ -18,24 +18,55 @@ const url = `http://localhost:4000/greeting`;
  * @function closeForm to close all blocks
  */
 createGreetingForm = () => {
-  document.getElementById("createGreeting").style.display = "block";
-  document.getElementById("editGreeting").style.display = "none";
-  document.getElementById("deleteGreeting").style.display = "none";
+  let popupWindow = "";
+  document.getElementById("greeting").style.display = "none";
+  document.getElementById("greeting").style.display = "block";
+  popupWindow = `<h3>Create Greeting</h3>
+
+  <label for="name"><b>Name:</b></label>
+  <input type="text" placeholder="Enter Name" name="name" id="createGreetingName" required >
+
+  <label for="message"><b>Message:</b></label>
+  <input type="text" placeholder="Enter Message" name="message" id="createGreetingMessage" required>
+
+  <button type="submit" class="btn" onclick="postGreeting()">Create Greeting</button>
+  <button type="button" class="btn cancel" onclick="closeForm()">Close</button>`;
+  greetingWindow.innerHTML = popupWindow;
 };
 editGreetingForm = () => {
-  document.getElementById("editGreeting").style.display = "block";
-  document.getElementById("createGreeting").style.display = "none";
-  document.getElementById("deleteGreeting").style.display = "none";
+  let popupWindow = "";
+  document.getElementById("greeting").style.display = "none";
+  document.getElementById("greeting").style.display = "block";
+  popupWindow = `<h3>Edit Greeting</h3>
+
+  <label for="GreetingID"><b>GreetingID:</b></label>
+  <input type="text" placeholder="Enter GreetingID" id="editGreetingID" required>
+
+  <label for="name"><b>Name:</b></label>
+  <input type="text" placeholder="Enter Name" name="name" id="editGreetingName" required>
+
+  <label for="message"><b>Message:</b></label>
+  <input type="text" placeholder="Enter Message" name="message" id="editGreetingMessage" required>
+
+  <button type="submit" class="btn" onclick="putGreeting()" >Update Greeting</button>
+  <button type="button" class="btn cancel" onclick="closeForm()">Close</button>`;
+  greetingWindow.innerHTML = popupWindow;
 };
 deleteGreetingForm = () => {
-  document.getElementById("deleteGreeting").style.display = "block";
-  document.getElementById("editGreeting").style.display = "none";
-  document.getElementById("createGreeting").style.display = "none";
+  let popupWindow = "";
+  document.getElementById("greeting").style.display = "none";
+  document.getElementById("greeting").style.display = "block";
+  popupWindow = ` <h3>Delete Greeting</h3>
+
+  <label for="GreetingID"><b>GreetingID:</b></label>
+  <input type="text" placeholder="Enter GreetingID" id="deleteGreetingID" required>
+
+  <button type="submit" onclick="deleteGreeting()" class="btn">Delete Greeting</button>
+  <button type="button" class="btn cancel" onclick="closeForm()">Close</button>`;
+  greetingWindow.innerHTML = popupWindow;
 };
 closeForm = () => {
-  document.getElementById("createGreeting").style.display = "none";
-  document.getElementById("editGreeting").style.display = "none";
-  document.getElementById("deleteGreeting").style.display = "none";
+  document.getElementById("greeting").style.display = "none";
 };
 /**
  * @description to print cards using innerHTML
@@ -81,7 +112,6 @@ postGreeting = () => {
     body: JSON.stringify(greeting),
     headers: { "Content-Type": "application/json" },
   })
-    .then((response) => response.json())
     .then((data) => {
       console.log(data);
     })
@@ -99,9 +129,7 @@ putGreeting = () => {
     name: document.getElementById("editGreetingName").value,
     message: document.getElementById("editGreetingMessage").value,
   };
-  let url1 = `${url}/${
-    document.getElementById("editGreetingID").value
-  }`;
+  let url1 = `${url}/${document.getElementById("editGreetingID").value}`;
   fetch(url1, {
     method: "put",
     body: JSON.stringify(greeting),
@@ -120,9 +148,7 @@ putGreeting = () => {
  * @function deleteGreeting show response successful if id is present and proper
  */
 deleteGreeting = () => {
-  let url1 = `${url}/${
-    document.getElementById("deleteGreetingID").value
-  }`;
+  let url1 = `${url}/${document.getElementById("deleteGreetingID").value}`;
   fetch(url1, { method: "delete" })
     .then((data) => {
       console.log(data);

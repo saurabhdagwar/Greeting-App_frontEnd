@@ -9,18 +9,18 @@
             <ul class="main">
 				<li><a onclick="getGreeting()" > <img src="./assets/list.png"> List</a></li>
 				<li><a onclick="createGreetingForm()"><img src="./assets/Add.png"> add</a></li>
-				<li><a onclick="editGreetingForm()" ><img src="./assets/edit.png"> Edit</a></li>
-				<li><a onclick="deleteGreetingForm()" ><img src="./assets/delete.png"> Delete</a></li>	
+				<li><a onclick="closeForm()" ><img src="./assets/edit.png"> Edit</a></li>
+				<li><a onclick="closeForm()" ><img src="./assets/delete.png"> Delete</a></li>	
 			</ul>
 		</div>   
 		<header>
         <div  class="topbar" >
 			<h3>Greeting-App </h3>
 			<ul class="main">
-				<li><a > <img src="./assets/notification.png" > </a></li>
-				<li><a ><img src="./assets/message.png"></a></li>
-				<li><a ><img src="./assets/setting.png">Support</a></li>
-				<li><a ><img src="./assets/tools.png">Tools</a></li>
+				<li><a> <img src="./assets/notification.png" > </a></li>
+				<li><a><img src="./assets/message.png"></a></li>
+				<li><a><img src="./assets/setting.png">Support</a></li>
+				<li><a><img src="./assets/tools.png">Tools</a></li>
 				<li><a class="signin" ><b>Sign In</a></li>
 				<li><a class="signup" >Sign Up</b></a></li>
 			</ul>
@@ -31,15 +31,17 @@
 	</h2>>
 	
 	<div class="posts-cards" id="postsCards"></div>
+	<div class="greetingOptions" id="options"></div>
 
 	<div class="form-popup" id="greeting">
 		<form class="form-container">
 			<div id="greetingWindow"></div>
-
 		</form>
 	  </div>
 
+	  
+
 	<script src='./src/app.js'> </script>
-	
+
 </body>
 </html>

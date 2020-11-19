@@ -100,22 +100,25 @@
 .card {
   float: left;
 }
-textarea {
+.box {
   margin-left: 8px;
   margin-top: 8px;
   margin-bottom: 8px;
   margin-right: 8px;
   padding: 10px;
-  line-height: 18 0%;
+  line-height: 180%;
   width: 250;
-  height: 130;
-  font-size: 12;
+  height: 100;
+  font-size: 11px;
   border-radius: 10px;
   font-family: "Times New Roman", Times, serif;
   border: 1px solid #ccc;
   box-shadow: 3px 3px 3px #999;
 }
-
+.box:hover {
+    background-color: #eceff1;
+}
+   
 .form-popup {
   display: none;
   position: fixed;
@@ -157,7 +160,35 @@ textarea {
 .form-container .cancel {
   background-color: #f44336;
 }
-.form-container .btn:hover,
-.open-button:hover {
+.form-container .btn:hover {
   opacity: 1;
+}
+
+.editButton{
+    border-radius: 10px;
+    float: left;
+    cursor: pointer;
+    background-color: #ffff;
+    border: 2px solid #0000;
+}
+ .deleteButton{
+     border-radius: 10px;
+    float: right;
+    cursor: pointer;
+    background-color: #ffff;
+    border: 2px solid #0000;
+}
+.deleteButton img{
+    width: 12px;
+    height: 12px;    
+}
+.editButton img{
+    width: 12px;
+    height: 12px;    
+}
+.editButton:hover{
+    background-color: #81c784;
+}
+.deleteButton:hover{
+    background-color: #f44336;
 }

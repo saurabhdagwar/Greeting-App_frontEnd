@@ -8,8 +8,6 @@
  * @since       : 16/11/2020
  *************************************************************************************/
 
-const { SSL_OP_EPHEMERAL_RSA } = require("constants");
-
 const url = `http://localhost:4000/greeting`;
 
 /**
@@ -30,7 +28,7 @@ createGreetingForm = () => {
 
   <button type="button" class="btn" onclick="postGreeting()">Create Greeting</button>
   <button type="button" class="btn cancel" onclick="closeForm()">Close</button>`;
-  
+  getGreeting();
 };
 editGreetingForm = (id) => {
   document.getElementById("greeting").style.display = "block";
@@ -44,10 +42,21 @@ editGreetingForm = (id) => {
 
   <button type="button" class="btn" onclick="putGreeting('${id}')" >Update Greeting</button>
   <button type="button" class="btn cancel" onclick="closeForm()">Close</button>`;
+  getGreeting();
+  
 };
 
+deleteGreetingForm = (id) => {
+  document.getElementById("greeting").style.display = "block";
+  greetingWindow.innerHTML = `<h3>Conform you want to delete Greeting</h3>
+
+  <button type="button" class="btn" onclick="deleteGreeting('${id}')" >Delete Greeting</button>
+  <button type="button" class="btn cancel" onclick="closeForm()">Close</button>`;
+  getGreeting();
+};
 closeForm = () => {
   document.getElementById("greeting").style.display = "none";
+  
 };
 /**
  * @description to print cards using innerHTML
@@ -55,11 +64,13 @@ closeForm = () => {
  */
 const printCards = (posts) => {
   let output = "";
+
   posts.forEach((post) => {
+   let date = `${post.createdAt.split('T')[0]}`
     output += `<div class="card" >
-<div class="box" name="G1"><a class="greetingBox" onclick="selectWork('${post._id}')">Id:- ${post._id} <br> Name:- ${post.name} <br> 
-Message:- ${post.message} <br> Created on:- ${post.createdAt}</a> <br>
-<button type="submit" class="deleteButton" onclick="deleteGreeting('${post._id}')" ><img src="./assets/delete.png">Delete </button>
+<div class="box" name="G1"><a class="greetingBox" onclick="selectWork('${post._id}')"><b> Name:-</b> ${post.name} <br> 
+<b>Message:- </b>${post.message} <br><b> Created on:-</b> ${date}</a> <br>
+<button type="submit" class="deleteButton" onclick="deleteGreetingForm('${post._id}')" ><img src="./assets/delete.png">Delete </button>
 <button class="editButton" onclick="editGreetingForm('${post._id}')"><img src="./assets/edit.png"> Edit </button>
 </div>
 </div>`;
@@ -96,13 +107,13 @@ postGreeting = () => {
   })
     .then((data) => {
       console.log(data);
+      alert("Successfully Created New Greeting");
       
     })
     .catch((err) => {
       console.log(err);
     });
     closeForm();
-    sleep(2000); 
     getGreeting();
 };
 
@@ -123,6 +134,7 @@ putGreeting = (id) => {
   })
     .then((data) => {
       console.log(data);
+      alert("Successfully Updated Greeting");
     })
     .catch((err) => {
       console.log(err);
@@ -140,10 +152,12 @@ deleteGreeting = (id) => {
   fetch(url1, { method: "delete" })
     .then((data) => {
       console.log(data);
+      alert("Successfully Deleted Greeting");
     })
     .catch((err) => {
       console.log(err);
     });
+    closeForm();
     getGreeting();
 };
 

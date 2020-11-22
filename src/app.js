@@ -43,7 +43,6 @@ editGreetingForm = (id) => {
   <button type="button" class="btn" onclick="putGreeting('${id}')" >Update Greeting</button>
   <button type="button" class="btn cancel" onclick="closeForm()">Close</button>`;
   getGreeting();
-  
 };
 
 deleteGreetingForm = (id) => {
@@ -56,7 +55,6 @@ deleteGreetingForm = (id) => {
 };
 closeForm = () => {
   document.getElementById("greeting").style.display = "none";
-  
 };
 /**
  * @description to print cards using innerHTML
@@ -66,12 +64,19 @@ const printCards = (posts) => {
   let output = "";
 
   posts.forEach((post) => {
-   let date = `${post.createdAt.split('T')[0]}`
     output += `<div class="card" >
-<div class="box" name="G1"><a class="greetingBox" onclick="selectWork('${post._id}')"><b> Name:-</b> ${post.name} <br> 
-<b>Message:- </b>${post.message} <br><b> Created on:-</b> ${date}</a> <br>
-<button type="submit" class="deleteButton" onclick="deleteGreetingForm('${post._id}')" ><img src="./assets/delete.png">Delete </button>
-<button class="editButton" onclick="editGreetingForm('${post._id}')"><img src="./assets/edit.png"> Edit </button>
+<div class="box" name="G1"><a class="greetingBox" onclick="selectWork('${
+      post._id
+    }')"><p><span> Name:- ${post.name} </span> 
+<span>Message:- ${post.message} </span><span> Created on:- ${
+      post.createdAt.split("T")[0]
+    } </a> </span></p>
+<button type="submit" class="deleteButton" onclick="deleteGreetingForm('${
+      post._id
+    }')" ><img src="./assets/delete.png">Delete </button>
+<button class="editButton" onclick="editGreetingForm('${
+      post._id
+    }')"><img src="./assets/edit.png"> Edit </button>
 </div>
 </div>`;
   });
@@ -103,18 +108,17 @@ postGreeting = () => {
   fetch(url, {
     method: "POST",
     body: JSON.stringify(greeting),
-    headers: { "Content-Type": "application/json" }
+    headers: { "Content-Type": "application/json" },
   })
     .then((data) => {
       console.log(data);
-      alert("Successfully Created New Greeting");
-      
+      //alert("Successfully Created New Greeting");
     })
     .catch((err) => {
       console.log(err);
     });
-    closeForm();
-    getGreeting();
+  closeForm();
+  getGreeting();
 };
 
 /**
@@ -130,7 +134,7 @@ putGreeting = (id) => {
   fetch(url1, {
     method: "put",
     body: JSON.stringify(greeting),
-    headers: { "Content-Type": "application/json" }
+    headers: { "Content-Type": "application/json" },
   })
     .then((data) => {
       console.log(data);
@@ -139,8 +143,8 @@ putGreeting = (id) => {
     .catch((err) => {
       console.log(err);
     });
-    closeForm();
-    getGreeting();
+  closeForm();
+  getGreeting();
 };
 
 /**
@@ -157,7 +161,6 @@ deleteGreeting = (id) => {
     .catch((err) => {
       console.log(err);
     });
-    closeForm();
-    getGreeting();
+  closeForm();
+  getGreeting();
 };
-

@@ -94,7 +94,7 @@
   width: 20;
   height: 20;
 }
-.posts-cards {
+.postsCards {
   margin-left: 20%;
 }
 .card {
@@ -119,34 +119,34 @@
   background-color: #eceff1;
 }
 
-.form-popup {
+.formPopup {
   display: none;
   position: fixed;
   top: 15%;
   left: 35%;
   border: 3px solid #f1f1f1;
 }
-.form-container {
+.formContainer {
   max-width: 400px;
   padding: 10px;
   background-color: white;
 }
-.form-container h3 {
+.formContainer h3 {
   color: #1a237e;
   background-color: #fff9c4;
 }
-.form-container input {
+.formContainer input {
   width: 100%;
   padding: 15px;
   margin: 5px 0 22px 0;
   border: none;
   background: #f1f1f1;
 }
-.form-container input:focus {
+.formContainer input:focus {
   background-color: #ddd;
   outline: none;
 }
-.form-container .btn {
+.formContainer .btn {
   background-color: #81c784;
   color: white;
   padding: 16px 20px;
@@ -156,10 +156,10 @@
   margin-bottom: 10px;
   opacity: 0.8;
 }
-.form-container .cancel {
+.formContainer .cancel {
   background-color: #f44336;
 }
-.form-container .btn:hover {
+.formContainer .btn:hover {
   opacity: 1;
 }
 

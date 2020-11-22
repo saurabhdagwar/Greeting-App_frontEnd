@@ -9,6 +9,10 @@
  *************************************************************************************/
 
 const url = `http://localhost:4000/greeting`;
+const namePattern = /^[a-zA-Z]{4,20}$/;
+const messagePattern = /^[a-zA-Z0-9@#$%^&*(){}]{4,}$/;
+let nameValidate;
+let messageValidate;
 
 /**
  * @description popup windows for create, update and delete buttons
@@ -20,10 +24,10 @@ createGreetingForm = () => {
   document.getElementById("greeting").style.display = "block";
   greetingWindow.innerHTML = `<h3>Create Greeting</h3>
 
-  <label ><b>Name:</b></label>
+  <label >Name:</label>
   <input type="text" placeholder="Enter Name" autocomplete="off" id="greetingName" required >
 
-  <label ><b>Message:</b></label>
+  <label >Message:</label>
   <input type="text" placeholder="Enter Message" autocomplete="off" id="greetingMessage" required>
 
   <button type="button" class="btn" onclick="postGreeting()">Create Greeting</button>
@@ -34,10 +38,10 @@ editGreetingForm = (id) => {
   document.getElementById("greeting").style.display = "block";
   greetingWindow.innerHTML = `<h3>Edit Greeting</h3>
 
-  <label for="name"><b>Name:</b></label>
+  <label for="name">Name:</label>
   <input type="text" placeholder="Enter Name" autocomplete="off" id="greetingName" required>
 
-  <label for="message"><b>Message:</b></label>
+  <label for="message">Message:</label>
   <input type="text" placeholder="Enter Message" autocomplete="off" id="greetingMessage" required>
 
   <button type="button" class="btn" onclick="putGreeting('${id}')" >Update Greeting</button>
@@ -62,7 +66,6 @@ closeForm = () => {
  */
 const printCards = (posts) => {
   let output = "";
-
   posts.forEach((post) => {
     output += `<div class="card" >
 <div class="box" name="G1"><a class="greetingBox" onclick="selectWork('${
@@ -101,6 +104,16 @@ getGreeting = () => {
  * @function postGreeting if data is proper then print data else print err
  */
 postGreeting = () => {
+  nameValidate = namePattern.test(document.getElementById("greetingName").value);
+  messageValidate = messagePattern.test(document.getElementById("greetingMessage").value);
+  if(nameValidate == false){
+    alert('Name must contain minimum 4 character and and no numbers');
+    return false;
+  }
+  if(messageValidate == false){
+    alert('Message must contain minimum 4 character');
+    return false;
+  }
   let greeting = {
     name: document.getElementById("greetingName").value,
     message: document.getElementById("greetingMessage").value,
@@ -126,6 +139,16 @@ postGreeting = () => {
  * @function putGreeting show response successful if data is proper
  */
 putGreeting = (id) => {
+  nameValidate = namePattern.test(document.getElementById("greetingName").value);
+  messageValidate = messagePattern.test(document.getElementById("greetingMessage").value);
+  if(nameValidate == false){
+    alert('Name must contain minimum 4 character and and no numbers');
+    return false;
+  }
+  if(messageValidate == false){
+    alert('Message must contain minimum 4 character');
+    return false;
+  }
   let greeting = {
     name: document.getElementById("greetingName").value,
     message: document.getElementById("greetingMessage").value,

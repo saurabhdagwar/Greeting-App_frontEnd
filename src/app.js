@@ -9,8 +9,8 @@
  *************************************************************************************/
 
 const url = `http://localhost:4000/greeting`;
-const namePattern = /^[a-zA-Z]{4,20}$/;
-const messagePattern = /^[a-zA-Z0-9@#$%^&*(){}]{4,}$/;
+const namePattern = /^[a-zA-Z ]{4,20}$/;
+const messagePattern = /^[a-zA-Z0-9@#$%^&*(){} ]{4,}$/;
 let nameValidate;
 let messageValidate;
 
@@ -104,14 +104,18 @@ getGreeting = () => {
  * @function postGreeting if data is proper then print data else print err
  */
 postGreeting = () => {
-  nameValidate = namePattern.test(document.getElementById("greetingName").value);
-  messageValidate = messagePattern.test(document.getElementById("greetingMessage").value);
-  if(nameValidate == false){
-    alert('Name must contain minimum 4 character and and no numbers');
+  nameValidate = namePattern.test(
+    document.getElementById("greetingName").value
+  );
+  messageValidate = messagePattern.test(
+    document.getElementById("greetingMessage").value
+  );
+  if (nameValidate == false) {
+    alert("Name must contain minimum 4 character and and no numbers");
     return false;
   }
-  if(messageValidate == false){
-    alert('Message must contain minimum 4 character');
+  if (messageValidate == false) {
+    alert("Message must contain minimum 4 character");
     return false;
   }
   let greeting = {
@@ -139,14 +143,18 @@ postGreeting = () => {
  * @function putGreeting show response successful if data is proper
  */
 putGreeting = (id) => {
-  nameValidate = namePattern.test(document.getElementById("greetingName").value);
-  messageValidate = messagePattern.test(document.getElementById("greetingMessage").value);
-  if(nameValidate == false){
-    alert('Name must contain minimum 4 character and and no numbers');
+  nameValidate = namePattern.test(
+    document.getElementById("greetingName").value
+  );
+  messageValidate = messagePattern.test(
+    document.getElementById("greetingMessage").value
+  );
+  if (nameValidate == false) {
+    alert("Name must contain minimum 4 character and and no numbers");
     return false;
   }
-  if(messageValidate == false){
-    alert('Message must contain minimum 4 character');
+  if (messageValidate == false) {
+    alert("Message must contain minimum 4 character");
     return false;
   }
   let greeting = {

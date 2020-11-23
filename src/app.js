@@ -9,10 +9,6 @@
  *************************************************************************************/
 
 const url = `http://localhost:4000/greeting`;
-const namePattern = /^[a-zA-Z ]{4,20}$/;
-const messagePattern = /^[a-zA-Z0-9@#$%^&*(){} ]{4,}$/;
-let nameValidate;
-let messageValidate;
 
 /**
  * @description popup windows for create, update and delete buttons
@@ -22,44 +18,47 @@ let messageValidate;
  */
 createGreetingForm = () => {
   document.getElementById("greeting").style.display = "block";
-  greetingWindow.innerHTML = `<h3>Create Greeting</h3>
+  let createForm = `<h3>Create Greeting</h3>
 
-  <label >Name:</label>
-  <input type="text" placeholder="Enter Name" autocomplete="off" id="greetingName" required >
+  <label  >Name:</label>
+  <input type="text" placeholder="Enter Name" pattern="^[a-zA-Z ]{4,20}$" id="greetingName" required>
 
   <label >Message:</label>
-  <input type="text" placeholder="Enter Message" autocomplete="off" id="greetingMessage" required>
+  <input type="text" placeholder="Enter Message" pattern="^[a-zA-Z0-9@#$%^&*(){} ]{4,}$" id="greetingMessage" required>
 
-  <button type="button" class="btn" onclick="postGreeting()">Create Greeting</button>
+  <button type="submit" class="btn" onclick="postGreeting()">Create Greeting</button>
   <button type="button" class="btn cancel" onclick="closeForm()">Close</button>`;
-  getGreeting();
+  greetingWindow.innerHTML = createForm;
 };
+
 editGreetingForm = (id) => {
   document.getElementById("greeting").style.display = "block";
   greetingWindow.innerHTML = `<h3>Edit Greeting</h3>
 
-  <label for="name">Name:</label>
-  <input type="text" placeholder="Enter Name" autocomplete="off" id="greetingName" required>
+  <label  >Name:</label>
+  <input type="text" placeholder="Enter Name" pattern="^[a-zA-Z ]{4,20}$" id="greetingName" required>
 
-  <label for="message">Message:</label>
-  <input type="text" placeholder="Enter Message" autocomplete="off" id="greetingMessage" required>
+  <label >Message:</label>
+  <input type="text" placeholder="Enter Message" pattern="^[a-zA-Z0-9@#$%^&*(){} ]{4,}$" id="greetingMessage" required>
 
-  <button type="button" class="btn" onclick="putGreeting('${id}')" >Update Greeting</button>
+  <button type="submit" class="btn" onclick="putGreeting('${id}')" >Update Greeting</button>
   <button type="button" class="btn cancel" onclick="closeForm()">Close</button>`;
-  getGreeting();
 };
 
 deleteGreetingForm = (id) => {
   document.getElementById("greeting").style.display = "block";
-  greetingWindow.innerHTML = `<h3>Conform you want to delete Greeting</h3>
+  greetingWindow.innerHTML = `<div class="deleteForm">
+  <h3>Conform you want to delete Greeting</h3>
 
-  <button type="button" class="btn" onclick="deleteGreeting('${id}')" >Delete Greeting</button>
-  <button type="button" class="btn cancel" onclick="closeForm()">Close</button>`;
-  getGreeting();
+  <button type="submit" class="btn" onclick="deleteGreeting('${id}')" >Delete Greeting</button>
+  <button type="button" class="btn cancel" onclick="closeForm()">Close</button>
+  </div>`;
 };
+
 closeForm = () => {
   document.getElementById("greeting").style.display = "none";
 };
+
 /**
  * @description to print cards using innerHTML
  * @param output is and array to store all greetings data
@@ -83,7 +82,7 @@ const printCards = (posts) => {
 </div>
 </div>`;
   });
-  postsCards.innerHTML = output;
+  document.getElementsByClassName("postsCards")[0].innerHTML = output;
 };
 
 /**
@@ -92,32 +91,20 @@ const printCards = (posts) => {
  */
 getGreeting = () => {
   fetch(url)
-    .then((response) => response.json())
-    .then((result) => result.data)
-    .then((data) => printCards(data))
+    .then(async (response) => {
+      const json = await response.json();
+      printCards(json.data);
+    })
     .catch((err) => {
-      return err;
+      console.log(err);
     });
 };
+
 /**
  * @description create greeting using fetch post method
  * @function postGreeting if data is proper then print data else print err
  */
 postGreeting = () => {
-  nameValidate = namePattern.test(
-    document.getElementById("greetingName").value
-  );
-  messageValidate = messagePattern.test(
-    document.getElementById("greetingMessage").value
-  );
-  if (nameValidate == false) {
-    alert("Name must contain minimum 4 character and and no numbers");
-    return false;
-  }
-  if (messageValidate == false) {
-    alert("Message must contain minimum 4 character");
-    return false;
-  }
   let greeting = {
     name: document.getElementById("greetingName").value,
     message: document.getElementById("greetingMessage").value,
@@ -134,8 +121,6 @@ postGreeting = () => {
     .catch((err) => {
       console.log(err);
     });
-  closeForm();
-  getGreeting();
 };
 
 /**
@@ -143,20 +128,6 @@ postGreeting = () => {
  * @function putGreeting show response successful if data is proper
  */
 putGreeting = (id) => {
-  nameValidate = namePattern.test(
-    document.getElementById("greetingName").value
-  );
-  messageValidate = messagePattern.test(
-    document.getElementById("greetingMessage").value
-  );
-  if (nameValidate == false) {
-    alert("Name must contain minimum 4 character and and no numbers");
-    return false;
-  }
-  if (messageValidate == false) {
-    alert("Message must contain minimum 4 character");
-    return false;
-  }
   let greeting = {
     name: document.getElementById("greetingName").value,
     message: document.getElementById("greetingMessage").value,
@@ -174,8 +145,6 @@ putGreeting = (id) => {
     .catch((err) => {
       console.log(err);
     });
-  closeForm();
-  getGreeting();
 };
 
 /**
@@ -192,6 +161,5 @@ deleteGreeting = (id) => {
     .catch((err) => {
       console.log(err);
     });
-  closeForm();
-  getGreeting();
 };
+getGreeting();

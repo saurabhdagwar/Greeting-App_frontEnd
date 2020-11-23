@@ -8,18 +8,20 @@
     <div class="sidebar">
       <ul class="main">
         <li>
-          <a onclick="getGreeting()"> <img src="./assets/list.png" /> List</a>
+          <button onclick="getGreeting()">
+            <img src="./assets/list.png" /> List
+          </button>
         </li>
         <li>
-          <a onclick="createGreetingForm()"
-            ><img src="./assets/add.png" /> add</a
-          >
+          <button onclick="createGreetingForm()">
+            <img src="./assets/add.png" /> add
+          </button>
         </li>
         <li>
-          <a><img src="./assets/edit.png" /> Edit</a>
+          <button><img src="./assets/edit.png" /> Edit</button>
         </li>
         <li>
-          <a><img src="./assets/delete.png" /> Delete</a>
+          <button><img src="./assets/delete.png" /> Delete</button>
         </li>
       </ul>
     </div>
@@ -45,13 +47,9 @@
       </div>
     </header>
     <h2 class="layoutTitle">Basic panels layout</h2>
-    
-
-    <div class="postsCards" id="postsCards"></div>
-    <div class="greetingOptions" id="options"></div>
-
+    <div class="postsCards"></div>
     <div class="formPopup" id="greeting">
-      <form class="formContainer">
+      <form href="#" class="formContainer">
         <div id="greetingWindow"></div>
       </form>
     </div>

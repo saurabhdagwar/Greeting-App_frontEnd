@@ -126,7 +126,8 @@
   position: fixed;
   top: 15%;
   left: 35%;
-  border: 3px solid #f1f1f1;
+  border: 3px solid #b0bec5;
+  border-radius: 10px;
 }
 .formContainer {
   max-width: 400px;
@@ -167,9 +168,10 @@
 .deleteForm h3 {
   background-color: azure;
 }
-.deleteForm .btn{
-width: 48%;
-border-radius: 20px;
+.deleteForm .btn {
+  margin-left: 50px;
+  width: 25%;
+  border-radius: 20px;
 }
 p span {
   display: block;

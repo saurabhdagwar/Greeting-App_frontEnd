@@ -9,6 +9,8 @@
  *************************************************************************************/
 
 const url = `http://localhost:4000/greeting`;
+const namePattern = /^[a-zA-Z]{4,20}$/;
+const messagePattern = /^[a-zA-Z0-9@#$%^&*(){}]{4,}$/;
 
 /**
  * @description popup windows for create, update and delete buttons
@@ -35,7 +37,7 @@ editGreetingForm = (id) => {
   document.getElementById("greeting").style.display = "block";
   greetingWindow.innerHTML = `<h3>Edit Greeting</h3>
 
-  <label  >Name:</label>
+  <label >Name:</label>
   <input type="text" placeholder="Enter Name" pattern="^[a-zA-Z ]{4,20}$" id="greetingName" required>
 
   <label >Message:</label>
@@ -50,7 +52,7 @@ deleteGreetingForm = (id) => {
   greetingWindow.innerHTML = `<div class="deleteForm">
   <h3>Conform you want to delete Greeting</h3>
 
-  <button type="submit" class="btn" onclick="deleteGreeting('${id}')" >Delete Greeting</button>
+  <button type="submit" class="btn" onclick="deleteGreeting('${id}')" >Delete</button>
   <button type="button" class="btn cancel" onclick="closeForm()">Close</button>
   </div>`;
 };
@@ -92,8 +94,8 @@ const printCards = (posts) => {
 getGreeting = () => {
   fetch(url)
     .then(async (response) => {
-      const json = await response.json();
-      printCards(json.data);
+      let jsonData = await response.json();
+      printCards(jsonData.data);
     })
     .catch((err) => {
       console.log(err);
@@ -105,6 +107,18 @@ getGreeting = () => {
  * @function postGreeting if data is proper then print data else print err
  */
 postGreeting = () => {
+  let nameValidate = namePattern.test(
+    document.getElementById("greetingName").value
+  );
+  let messageValidate = messagePattern.test(
+    document.getElementById("greetingMessage").value
+  );
+  if (nameValidate == false) {
+    return false;
+  }
+  if (messageValidate == false) {
+    return false;
+  }
   let greeting = {
     name: document.getElementById("greetingName").value,
     message: document.getElementById("greetingMessage").value,
@@ -116,7 +130,6 @@ postGreeting = () => {
   })
     .then((data) => {
       console.log(data);
-      //alert("Successfully Created New Greeting");
     })
     .catch((err) => {
       console.log(err);
@@ -128,6 +141,18 @@ postGreeting = () => {
  * @function putGreeting show response successful if data is proper
  */
 putGreeting = (id) => {
+  let nameValidate = namePattern.test(
+    document.getElementById("greetingName").value
+  );
+  let messageValidate = messagePattern.test(
+    document.getElementById("greetingMessage").value
+  );
+  if (nameValidate == false) {
+    return false;
+  }
+  if (messageValidate == false) {
+    return false;
+  }
   let greeting = {
     name: document.getElementById("greetingName").value,
     message: document.getElementById("greetingMessage").value,
@@ -162,4 +187,5 @@ deleteGreeting = (id) => {
       console.log(err);
     });
 };
+
 getGreeting();

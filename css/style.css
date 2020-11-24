@@ -121,58 +121,6 @@
   background-color: #eceff1;
 }
 
-.formPopup {
-  display: none;
-  position: fixed;
-  top: 15%;
-  left: 35%;
-  border: 3px solid #b0bec5;
-  border-radius: 10px;
-}
-.formContainer {
-  max-width: 400px;
-  padding: 10px;
-  background-color: white;
-}
-.formContainer h3 {
-  color: #1a237e;
-  background-color: #fff9c4;
-}
-.formContainer input {
-  width: 100%;
-  padding: 15px;
-  margin: 5px 0 22px 0;
-  border: none;
-  background: #f1f1f1;
-}
-.formContainer input:focus {
-  background-color: #ddd;
-  outline: none;
-}
-.formContainer .btn {
-  background-color: #81c784;
-  color: white;
-  padding: 16px 20px;
-  border: none;
-  cursor: pointer;
-  width: 100%;
-  margin-bottom: 10px;
-  opacity: 0.8;
-}
-.formContainer .cancel {
-  background-color: #f44336;
-}
-.formContainer .btn:hover {
-  opacity: 1;
-}
-.deleteForm h3 {
-  background-color: azure;
-}
-.deleteForm .btn {
-  margin-left: 50px;
-  width: 25%;
-  border-radius: 20px;
-}
 p span {
   display: block;
 }
@@ -205,4 +153,60 @@ p span {
 }
 .deleteButton:hover {
   background-color: #f44336;
+}
+.blurBackground{
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0,0,0,0.7);
+  position: absolute;
+  top: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  display: none;
+}
+.popupForm{
+  max-width: 400px;
+  padding: 10px;
+  background-color: white;
+  border-radius: 6px;
+}
+.popupForm h3{
+  color: #1a237e;
+  background-color: #fff9c4;
+}
+.popupForm input{
+  width: 100%;
+  padding: 15px;
+  margin: 5px 0 22px 0;
+  border: none;
+  background: #f1f1f1;
+}
+.popupForm input:focus{
+  background-color: #ddd;
+  outline: none;
+}
+.popupForm .btn{
+  background-color: #81c784;
+  color: white;
+  padding: 16px 20px;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+  margin-bottom: 10px;
+  opacity: 0.8;
+}
+.popupForm .cancel{
+  background-color: #f44336;
+}
+.popupForm .btn:hover {
+  opacity: 1;
+}
+.deleteForm h3 {
+  background-color: azure;
+}
+.deleteForm .btn {
+  margin-left: 50px;
+  width: 25%;
+  border-radius: 20px;
 }

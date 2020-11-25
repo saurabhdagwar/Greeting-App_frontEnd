@@ -17,11 +17,11 @@
   margin-top: 50px;
   margin-left: 0px;
 }
-.sidebar ul li {
+.sidebar ul span {
   display: inline-flex;
   margin: 2px;
 }
-.sidebar li button {
+.sidebar span button {
   border: none;
   background-color: #e0f7fa;
   text-decoration: none;
@@ -30,9 +30,22 @@
   padding: 5px 10px;
   transition: 0.4s ease;
 }
-.sidebar li button:hover {
+.sidebar span button:hover {
   color: #ff5252;
 }
+.buttons{
+  border: none;
+  background-color: #e0f7fa;
+  text-decoration: none;
+  color: #000;
+  cursor: pointer;
+  padding: 5px 10px;
+  transition: 0.4s ease;
+}
+.buttons:hover{
+  color: #ff5252;
+}
+
 .sidebar img {
   width: 15px;
   height: 15px;
@@ -47,17 +60,18 @@
   list-style-type: none;
   margin-bottom: 10px;
   margin-right: 25px;
+  cursor: pointer;
 }
 .topbar li {
   display: inline-block;
 }
-.topbar li a {
+.topbar li .link{
   text-decoration: none;
   color: #000;
   padding: 5px 10px;
   transition: 0.4s ease;
 }
-.topbar li a:hover {
+.topbar li .link:hover {
   color: #ff5252;
 }
 .signin {
@@ -167,6 +181,7 @@ p span {
 }
 .popupForm{
   max-width: 400px;
+  width: 350px;
   padding: 10px;
   background-color: white;
   border-radius: 6px;
@@ -178,7 +193,7 @@ p span {
 .popupForm input{
   width: 100%;
   padding: 15px;
-  margin: 5px 0 22px 0;
+  margin: 5px 0 ;
   border: none;
   background: #f1f1f1;
 }
@@ -209,4 +224,12 @@ p span {
   margin-left: 50px;
   width: 25%;
   border-radius: 20px;
+}
+#nameText{
+  display: block;
+  margin: 0 0 15px;
+}
+#messageText{
+  display: block;
+  margin: 0 0 15px;
 }

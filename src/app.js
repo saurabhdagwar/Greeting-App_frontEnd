@@ -3,7 +3,7 @@
  * Purpose      : JavaScript program for frontend
  * @file        : app.js
  * @overview    : Check whether server is running or not
- * @module      : 1.node-fetch   2. browserify
+ * @module      : 1.node-fetch  
  * @author      : Saurabh Dagwar
  * @since       : 16/11/2020
  *************************************************************************************/
@@ -20,28 +20,33 @@ const messagePattern = /^[a-zA-Z0-9@#$%^&*(){} ]{4,}$/;
  */
 createGreetingForm = () => {
   document.querySelector(".popupForm").innerHTML = `<h3>Create Greeting</h3>
-    <label for="name">Name:</label>
-    <input type="text" placeholder="Enter Name" name="name" autocomplete="off" id="greetingName" required/>
-  
-    <label for="message">Message:</label>
-    <input type="text" placeholder="Enter Message" name="message" autocomplete="off" id="greetingMessage" required/>
-  
+    <label for="greetingName">Name:</label>
+    <input type="text" class="nameInput" placeholder="Enter Name" oninput="nameValidate()" name="greetingName" autocomplete="off" id="greetingName" >
+    <span id="nameText"></span>
+
+    <label for="greetingMessage">Message:</label>
+    <input type="text" class="messageInput" placeholder="Enter Message" oninput="messageValidate()" name="greetingMessage" autocomplete="off" id="greetingMessage" >
+    <span id="messageText"></span>
+
     <button type="button" class="btn" onclick="postGreeting()"> Create Greeting </button>
     <button type="button" class="btn cancel" onclick="closeForm()"> Close </button> `;
   document.querySelector(".blurBackground").style.display = "flex";
 };
 
-editGreetingForm = (id) => {
+editGreetingForm = (id,name,message) => {
   let editForm = `<h3>Edit Greeting</h3>
 
-  <label for="name">Name:</label>
-  <input type="text" placeholder="Enter Name" name="name" autocomplete="off" id="greetingName" required>
+  <label for="greetingName">Name:</label>
+  <input type="text" class="nameInput" placeholder="Enter Name" value="${name}" oninput="nameValidate()" name="greetingName" autocomplete="off" id="greetingName" >
+  <span id="nameText"></span>
 
-  <label for="message">Message:</label>
-  <input type="text" placeholder="Enter Message" name="message" autocomplete="off" id="greetingMessage" required>
+  <label for="greetingMessage">Message:</label>
+  <input type="text" class="messageInput" placeholder="Enter Message" value="${message}" oninput="messageValidate()" name="greetingMessage" autocomplete="off" id="greetingMessage" >
+  <span id="messageText"></span>
 
   <button type="button" class="btn" onclick="putGreeting('${id}')">Update Greeting</button>
   <button type="button" class="btn cancel"  onclick="closeForm()">Close</button>`;
+
   document.querySelector(".popupForm").innerHTML = editForm;
   document.querySelector(".blurBackground").style.display = "flex";
 };
@@ -69,18 +74,12 @@ const printCards = (posts) => {
   let output = "";
   posts.forEach((post) => {
     output += `<div class="card" >
-<div class="box" name="G1"><a class="greetingBox" onclick="selectWork('${
-      post._id
-    }')"><p><span>  ${post.name} </span> 
+<div class="box" name="G1"><a class="greetingBox" onclick="selectWork('${post._id}')"><p><span>  ${post.name} </span> 
 <span> ${post.message} </span><span> Created on:- ${
       post.createdAt.split("T")[0]
     } </a> </span></p>
-<button type="submit" class="deleteButton" onclick="deleteGreetingForm('${
-      post._id
-    }')" ><img src="./assets/delete.png">Delete </button>
-<button class="editButton" onclick="editGreetingForm('${
-      post._id
-    }')"><img src="./assets/edit.png"> Edit </button>
+<button type="submit" class="deleteButton" onclick="deleteGreetingForm('${post._id}')" ><img src="./assets/delete.png">Delete </button>
+<button class="editButton" onclick="editGreetingForm('${post._id}','${post.name}','${post.message}')"><img src="./assets/edit.png"> Edit </button>
 </div>
 </div>`;
   });
@@ -109,21 +108,23 @@ getGreeting = () => {
  * @function postGreeting if data is proper then print data else print err
  */
 postGreeting = () => {
+
   let nameValidate = namePattern.test(
-    document.getElementById("greetingName").value
+    document.getElementsByClassName("nameInput")[0].value
   );
   let messageValidate = messagePattern.test(
-    document.getElementById("greetingMessage").value
+    document.getElementsByClassName("messageInput")[0].value
   );
   if (!nameValidate) {
-    return false;
+    document.getElementById("greetingName").style.cssText += "display : block !important"
+    return  false;
   }
   if (!messageValidate) {
     return false;
   }
   let greeting = {
-    name: document.getElementById("greetingName").value,
-    message: document.getElementById("greetingMessage").value,
+    name: document.getElementsByClassName("nameInput")[0].value,
+    message: document.getElementsByClassName("messageInput")[0].value,
   };
   fetch(url, {
     method: "POST",
@@ -132,10 +133,12 @@ postGreeting = () => {
   })
     .then((data) => {
       console.log(data);
+      alert("Successfully Created Greeting");
       getGreeting();
     })
     .catch((err) => {
       console.log(err);
+      alert("Error while Creating Greeting");
     });
   closeForm();
 };
@@ -146,10 +149,10 @@ postGreeting = () => {
  */
 putGreeting = (id) => {
   let nameValidate = namePattern.test(
-    document.getElementById("greetingName").value
+    document.getElementsByClassName("nameInput")[0].value
   );
   let messageValidate = messagePattern.test(
-    document.getElementById("greetingMessage").value
+    document.getElementsByClassName("messageInput")[0].value
   );
   if (!nameValidate) {
     return false;
@@ -158,11 +161,11 @@ putGreeting = (id) => {
     return false;
   }
   let greeting = {
-    name: document.getElementById("greetingName").value,
-    message: document.getElementById("greetingMessage").value,
+    name: document.getElementsByClassName("nameInput")[0].value,
+    message: document.getElementsByClassName("messageInput")[0].value,
   };
-  let greetingURL = `${url}/${id}`;
-  fetch(greetingURL, {
+  let uri = `${url}/${id}`;
+  fetch(uri, {
     method: "put",
     body: JSON.stringify(greeting),
     headers: { "Content-Type": "application/json" },
@@ -174,6 +177,7 @@ putGreeting = (id) => {
     })
     .catch((err) => {
       console.log(err);
+      alert("Error occurred while Updating Greeting");
     });
   closeForm();
 };
@@ -183,15 +187,46 @@ putGreeting = (id) => {
  * @function deleteGreeting show response successful if id is present and proper
  */
 deleteGreeting = (id) => {
-  let greetingURL = `${url}/${id}`;
-  fetch(greetingURL, { method: "delete" })
+  let uri = `${url}/${id}`;
+  fetch(uri, { method: "delete" })
     .then((data) => {
       console.log(data);
       alert("Successfully Deleted Greeting");
       getGreeting();
     })
     .catch((err) => {
+      alert("Error occurred while Deleting Greeting");
       console.log(err);
     });
   closeForm();
 };
+
+messageValidate = () => {
+  let messageValidate = messagePattern.test(document.getElementsByClassName("messageInput")[0].value);
+  if (!messageValidate) {
+    document.getElementById("messageText").innerHTML= `Invalid Message Input`;
+    document.getElementById("messageText").style.color = "#ff0000";
+  }
+  else if(messageValidate == ""){
+    document.getElementById("messageText").innerHTML= ``;
+  }
+  else{
+    document.getElementById("messageText").innerHTML= `Valid Message`;
+    document.getElementById("messageText").style.color = "#00ff00";
+  }
+}
+
+nameValidate = () => {
+  let nameValidate = namePattern.test(document.getElementsByClassName("nameInput")[0].value);
+  if (!nameValidate) {
+    document.getElementById("nameText").innerHTML= `Invalid Name Input`;
+    document.getElementById("nameText").style.color = "#ff0000";
+  }
+  else if(nameValidate == ""){
+    document.getElementById("nameText").innerHTML= ``;
+  }
+  else{
+    document.getElementById("nameText").innerHTML= `Valid Name`;
+    document.getElementById("nameText").style.color = "#00ff00";
+  }
+}

@@ -2,27 +2,27 @@
 <html>
   <head>
     <title>Greeting-App</title>
-    <link rel="stylesheet" type="text/css" href="css/style.css" />
+	<link rel="stylesheet" type="text/css" href="css/style.css" />
   </head>
   <body>
     <div class="sidebar">
       <ul class="main">
-        <li>
+        <span>
           <button onclick="getGreeting()">
             <img src="./assets/list.png" /> List
           </button>
-        </li>
-        <li>
+        </span>
+        <span>
           <button onclick="createGreetingForm()">
             <img src="./assets/add.png" /> add
           </button>
-        </li>
-        <li>
-          <button><img src="./assets/edit.png" /> Edit</button>
-        </li>
-        <li>
-          <button><img src="./assets/delete.png" /> Delete</button>
-        </li>
+        </span>
+        <span>
+          <div class="buttons"><img src="./assets/edit.png" /> Edit</div>
+        </span>
+        <span>
+          <div class="buttons"><img src="./assets/delete.png" /> Delete</div>
+        </span>
       </ul>
     </div>
     <header>
@@ -30,19 +30,19 @@
         <h3>Greeting-App</h3>
         <ul class="main">
           <li>
-            <a> <img src="./assets/notification.png" /> </a>
+            <div class="link"> <img src="./assets/notification.png" /> </div>
           </li>
           <li>
-            <a><img src="./assets/message.png" /></a>
+            <div class="link"><img src="./assets/message.png" /></div>
           </li>
           <li>
-            <a><img src="./assets/setting.png" />Support</a>
+            <div class="link"><img src="./assets/setting.png" />Support</div>
           </li>
           <li>
-            <a><img src="./assets/tools.png" />Tools</a>
+            <div class="link"><img src="./assets/tools.png" />Tools</div>
           </li>
-          <li><a class="signin">Sign In</a></li>
-          <li><a class="signup">Sign Up</a></li>
+          <li><div class="signin">Sign In</div></li>
+          <li><div class="signup">Sign Up</div></li>
         </ul>
       </div>
     </header>
@@ -54,6 +54,6 @@
         <div class="popupForm"></div>
       </div>
     </div>
-    <script src="./src/app.js"></script>
+	<script src="./src/app.js"></script>
   </body>
 </html>

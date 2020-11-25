@@ -3,14 +3,13 @@
  * Purpose      : JavaScript program for frontend
  * @file        : app.js
  * @overview    : Check whether server is running or not
- * @module      : 1.node-fetch  
  * @author      : Saurabh Dagwar
  * @since       : 16/11/2020
  *************************************************************************************/
 
 const url = `http://localhost:4000/greeting`;
 const namePattern = /^[a-zA-Z ]{4,20}$/;
-const messagePattern = /^[a-zA-Z0-9@#$%^&*(){} ]{4,}$/;
+const messagePattern = /^[a-zA-Z0-9@#$%^&*(){}.,?/ ]{4,}$/;
 
 /**
  * @description popup windows for create, update and delete buttons
@@ -23,11 +22,9 @@ createGreetingForm = () => {
     <label for="greetingName">Name:</label>
     <input type="text" class="nameInput" id="greetingName" placeholder="Enter Name" oninput="nameValidate()" name="greetingName" autocomplete="off" >
     <span id="nameText"></span>
-
     <label for="greetingMessage">Message:</label>
     <input type="text" class="messageInput" id="greetingMessage" placeholder="Enter Message" oninput="messageValidate()" name="greetingMessage" autocomplete="off"  >
     <span id="messageText"></span>
-
     <button type="button" class="btn" onclick="postGreeting()"> Create Greeting </button>
     <button type="button" class="btn cancel" onclick="closeForm()"> Close </button> `;
   document.querySelector(".blurBackground").style.display = "flex";
@@ -35,15 +32,12 @@ createGreetingForm = () => {
 
 editGreetingForm = (id,name,message) => {
   let editForm = `<h3>Edit Greeting</h3>
-
   <label for="greetingName">Name:</label>
   <input type="text" class="nameInput" id="greetingName" placeholder="Enter Name" value="${name}" oninput="nameValidate()" name="greetingName" autocomplete="off" >
   <span id="nameText"></span>
-
   <label for="greetingMessage">Message:</label>
   <input type="text" class="messageInput" id="greetingMessage" placeholder="Enter Message" value="${message}" oninput="messageValidate()" name="greetingMessage" autocomplete="off"  >
   <span id="messageText"></span>
-
   <button type="button" class="btn" onclick="putGreeting('${id}')">Update Greeting</button>
   <button type="button" class="btn cancel"  onclick="closeForm()">Close</button>`;
 
@@ -54,7 +48,6 @@ editGreetingForm = (id,name,message) => {
 deleteGreetingForm = (id) => {
   let deleteForm = `<div class="deleteForm">
   <h3>Conform you want to delete Greeting</h3>
-
   <button type="button" class="btn" onclick="deleteGreeting('${id}')" >Delete</button>
   <button type="button" class="btn cancel" onclick="closeForm()">Close</button>
   </div>`;
@@ -201,21 +194,10 @@ deleteGreeting = (id) => {
   closeForm();
 };
 
-messageValidate = () => {
-  let messageValidate = messagePattern.test(document.getElementById("greetingMessage").value);
-  if (!messageValidate) {
-    document.getElementById("messageText").innerHTML= `Invalid Message Input`;
-    document.getElementById("messageText").style.color = "#ff0000";
-  }
-  else if(messageValidate == ""){
-    document.getElementById("messageText").innerHTML= ``;
-  }
-  else{
-    document.getElementById("messageText").innerHTML= `Valid Message`;
-    document.getElementById("messageText").style.color = "#00ff00";
-  }
-}
-
+/**
+ * @description test method checks name input field according with pattern
+ * @function nameValidate function continuously check name input field with proper pattern
+ */
 nameValidate = () => {
   let nameValidate = namePattern.test(document.getElementById("greetingName").value);
   if (!nameValidate) {
@@ -228,5 +210,24 @@ nameValidate = () => {
   else{
     document.getElementById("nameText").innerHTML= `Valid Name`;
     document.getElementById("nameText").style.color = "#00ff00";
+  }
+}
+
+/**
+ * @description test method checks input field according with pattern
+ * @function messageValidate function continuously check message input field with proper format
+ */
+messageValidate = () => {
+  let messageValidate = messagePattern.test(document.getElementById("greetingMessage").value);
+  if (!messageValidate) {
+    document.getElementById("messageText").innerHTML= `Invalid Message Input`;
+    document.getElementById("messageText").style.color = "#ff0000";
+  }
+  else if(messageValidate == ""){
+    document.getElementById("messageText").innerHTML= ``;
+  }
+  else{
+    document.getElementById("messageText").innerHTML= `Valid Message`;
+    document.getElementById("messageText").style.color = "#00ff00";
   }
 }

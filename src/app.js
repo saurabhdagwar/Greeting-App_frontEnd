@@ -21,11 +21,11 @@ const messagePattern = /^[a-zA-Z0-9@#$%^&*(){} ]{4,}$/;
 createGreetingForm = () => {
   document.querySelector(".popupForm").innerHTML = `<h3>Create Greeting</h3>
     <label for="greetingName">Name:</label>
-    <input type="text" class="nameInput" placeholder="Enter Name" oninput="nameValidate()" name="greetingName" autocomplete="off" id="greetingName" >
+    <input type="text" class="nameInput" id="greetingName" placeholder="Enter Name" oninput="nameValidate()" name="greetingName" autocomplete="off" >
     <span id="nameText"></span>
 
     <label for="greetingMessage">Message:</label>
-    <input type="text" class="messageInput" placeholder="Enter Message" oninput="messageValidate()" name="greetingMessage" autocomplete="off" id="greetingMessage" >
+    <input type="text" class="messageInput" id="greetingMessage" placeholder="Enter Message" oninput="messageValidate()" name="greetingMessage" autocomplete="off"  >
     <span id="messageText"></span>
 
     <button type="button" class="btn" onclick="postGreeting()"> Create Greeting </button>
@@ -37,11 +37,11 @@ editGreetingForm = (id,name,message) => {
   let editForm = `<h3>Edit Greeting</h3>
 
   <label for="greetingName">Name:</label>
-  <input type="text" class="nameInput" placeholder="Enter Name" value="${name}" oninput="nameValidate()" name="greetingName" autocomplete="off" id="greetingName" >
+  <input type="text" class="nameInput" id="greetingName" placeholder="Enter Name" value="${name}" oninput="nameValidate()" name="greetingName" autocomplete="off" >
   <span id="nameText"></span>
 
   <label for="greetingMessage">Message:</label>
-  <input type="text" class="messageInput" placeholder="Enter Message" value="${message}" oninput="messageValidate()" name="greetingMessage" autocomplete="off" id="greetingMessage" >
+  <input type="text" class="messageInput" id="greetingMessage" placeholder="Enter Message" value="${message}" oninput="messageValidate()" name="greetingMessage" autocomplete="off"  >
   <span id="messageText"></span>
 
   <button type="button" class="btn" onclick="putGreeting('${id}')">Update Greeting</button>
@@ -108,12 +108,11 @@ getGreeting = () => {
  * @function postGreeting if data is proper then print data else print err
  */
 postGreeting = () => {
-
   let nameValidate = namePattern.test(
-    document.getElementsByClassName("nameInput")[0].value
+    document.getElementById("greetingName").value
   );
   let messageValidate = messagePattern.test(
-    document.getElementsByClassName("messageInput")[0].value
+    document.getElementById("greetingMessage").value
   );
   if (!nameValidate) {
     document.getElementById("greetingName").style.cssText += "display : block !important"
@@ -123,8 +122,8 @@ postGreeting = () => {
     return false;
   }
   let greeting = {
-    name: document.getElementsByClassName("nameInput")[0].value,
-    message: document.getElementsByClassName("messageInput")[0].value,
+    name: document.getElementById("greetingName").value,
+    message: document.getElementById("greetingMessage").value,
   };
   fetch(url, {
     method: "POST",
@@ -149,20 +148,21 @@ postGreeting = () => {
  */
 putGreeting = (id) => {
   let nameValidate = namePattern.test(
-    document.getElementsByClassName("nameInput")[0].value
+    document.getElementById("greetingName").value
   );
   let messageValidate = messagePattern.test(
-    document.getElementsByClassName("messageInput")[0].value
+    document.getElementById("greetingMessage").value
   );
   if (!nameValidate) {
-    return false;
+    document.getElementById("greetingName").style.cssText += "display : block !important"
+    return  false;
   }
   if (!messageValidate) {
     return false;
   }
   let greeting = {
-    name: document.getElementsByClassName("nameInput")[0].value,
-    message: document.getElementsByClassName("messageInput")[0].value,
+    name: document.getElementById("greetingName").value,
+    message: document.getElementById("greetingMessage").value,
   };
   let uri = `${url}/${id}`;
   fetch(uri, {
@@ -202,7 +202,7 @@ deleteGreeting = (id) => {
 };
 
 messageValidate = () => {
-  let messageValidate = messagePattern.test(document.getElementsByClassName("messageInput")[0].value);
+  let messageValidate = messagePattern.test(document.getElementById("greetingMessage").value);
   if (!messageValidate) {
     document.getElementById("messageText").innerHTML= `Invalid Message Input`;
     document.getElementById("messageText").style.color = "#ff0000";
@@ -217,7 +217,7 @@ messageValidate = () => {
 }
 
 nameValidate = () => {
-  let nameValidate = namePattern.test(document.getElementsByClassName("nameInput")[0].value);
+  let nameValidate = namePattern.test(document.getElementById("greetingName").value);
   if (!nameValidate) {
     document.getElementById("nameText").innerHTML= `Invalid Name Input`;
     document.getElementById("nameText").style.color = "#ff0000";

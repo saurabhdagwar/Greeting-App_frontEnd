@@ -234,3 +234,56 @@ p span {
   display: block;
   font-size: small;
 }
+
+@media only screen and (max-width: 768px) {
+  #appTitle {
+    margin-left: 17%;
+  }
+  .layoutTitle {
+    margin-left: 23%;
+  }
+  .topbar {
+    max-height: 10%;
+    display: flex;
+    justify-content: flex-end;
+  }
+  .topbar ul {
+    margin-top: 3%;
+    margin-left: 25%;
+    font-size: small;
+  }
+  .topbar li .link {
+    padding: 3px 3px;
+  }
+  .topbar img {
+    width: 15;
+    height: 15;
+  }
+  .postsCards {
+    margin-left: 22%;
+  }
+  .card {
+    display: flex;
+    align-content: center;
+  }
+  .box {
+    width: 220px;
+  }
+  .sidebar {
+    width: 12%;
+  }
+  .sidebar {
+    font-size: small;
+  }
+  .buttons{
+    padding: 5px 5px;
+  }
+  .sidebar img {
+    width: 10;
+    height: 10;
+  }
+  .sidebar span button {
+    padding: 3px 3px;
+  }
+}
+

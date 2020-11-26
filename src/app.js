@@ -1,5 +1,5 @@
 /***********************************************************************************
- * Execuation   : on Live Server
+ * Execuation   : On Live Server
  * Purpose      : JavaScript program for frontend
  * @file        : app.js
  * @overview    : Check whether server is running or not
@@ -21,10 +21,10 @@ createGreetingForm = () => {
   document.querySelector(".popupForm").innerHTML = `<h3>Create Greeting</h3>
     <label for="greetingName">Name:</label>
     <input type="text" class="nameInput" id="greetingName" placeholder="Enter Name" oninput="nameValidate()" name="greetingName" autocomplete="off" >
-    <span id="nameText"></span>
+    <div id="nameText">&nbsp</div>
     <label for="greetingMessage">Message:</label>
     <input type="text" class="messageInput" id="greetingMessage" placeholder="Enter Message" oninput="messageValidate()" name="greetingMessage" autocomplete="off"  >
-    <span id="messageText"></span>
+    <div id="messageText">&nbsp</div>
     <button type="button" class="btn" onclick="postGreeting()"> Create Greeting </button>
     <button type="button" class="btn cancel" onclick="closeForm()"> Close </button> `;
   document.querySelector(".blurBackground").style.display = "flex";
@@ -34,10 +34,10 @@ editGreetingForm = (id,name,message) => {
   let editForm = `<h3>Edit Greeting</h3>
   <label for="greetingName">Name:</label>
   <input type="text" class="nameInput" id="greetingName" placeholder="Enter Name" value="${name}" oninput="nameValidate()" name="greetingName" autocomplete="off" >
-  <span id="nameText"></span>
+  <span id="nameText" >&nbsp</span>
   <label for="greetingMessage">Message:</label>
   <input type="text" class="messageInput" id="greetingMessage" placeholder="Enter Message" value="${message}" oninput="messageValidate()" name="greetingMessage" autocomplete="off"  >
-  <span id="messageText"></span>
+  <span id="messageText">&nbsp</span>
   <button type="button" class="btn" onclick="putGreeting('${id}')">Update Greeting</button>
   <button type="button" class="btn cancel"  onclick="closeForm()">Close</button>`;
 
@@ -67,12 +67,14 @@ const printCards = (posts) => {
   let output = "";
   posts.forEach((post) => {
     output += `<div class="card" >
-<div class="box" name="G1"><a class="greetingBox" onclick="selectWork('${post._id}')"><p><span>  ${post.name} </span> 
-<span> ${post.message} </span><span> Created on:- ${
+<div class="box" name="G1"><div class="greetingBox" ><p><span>  ${post.name} </span> 
+<span> ${post.message} </span><span> ${
       post.createdAt.split("T")[0]
-    } </a> </span></p>
-<button type="submit" class="deleteButton" onclick="deleteGreetingForm('${post._id}')" ><img src="./assets/delete.png">Delete </button>
+    } </div> </span></p>
+<div class="cardButtons">
+<button class="deleteButton" onclick="deleteGreetingForm('${post._id}')" ><img src="./assets/delete.png">Delete </button>
 <button class="editButton" onclick="editGreetingForm('${post._id}','${post.name}','${post.message}')"><img src="./assets/edit.png"> Edit </button>
+</div>
 </div>
 </div>`;
   });
@@ -200,16 +202,14 @@ deleteGreeting = (id) => {
  */
 nameValidate = () => {
   let nameValidate = namePattern.test(document.getElementById("greetingName").value);
-  if (!nameValidate) {
-    document.getElementById("nameText").innerHTML= `Invalid Name Input`;
-    document.getElementById("nameText").style.color = "#ff0000";
-  }
-  else if(nameValidate == ""){
-    document.getElementById("nameText").innerHTML= ``;
+  if(nameValidate || document.getElementById("greetingName").value == "") {
+    // document.querySelector(".nameInput").style.border = "2px solid #0000"
+    document.getElementById("nameText").innerHTML= `&nbsp`;
   }
   else{
-    document.getElementById("nameText").innerHTML= `Valid Name`;
-    document.getElementById("nameText").style.color = "#00ff00";
+    // document.querySelector(".nameInput").style.border = "2px solid #ff0000"
+    document.getElementById("nameText").innerHTML= `Invalid Name Input`
+    document.getElementById("nameText").style.color = "#ff0000";
   }
 }
 
@@ -219,15 +219,13 @@ nameValidate = () => {
  */
 messageValidate = () => {
   let messageValidate = messagePattern.test(document.getElementById("greetingMessage").value);
-  if (!messageValidate) {
-    document.getElementById("messageText").innerHTML= `Invalid Message Input`;
-    document.getElementById("messageText").style.color = "#ff0000";
-  }
-  else if(messageValidate == ""){
-    document.getElementById("messageText").innerHTML= ``;
+  if(messageValidate || document.getElementById("greetingMessage").value == "") {
+    // document.querySelector(".messageInput").style.border = "2px solid #0000"  
+    document.getElementById("messageText").innerHTML= `&nbsp`;
   }
   else{
-    document.getElementById("messageText").innerHTML= `Valid Message`;
-    document.getElementById("messageText").style.color = "#00ff00";
+    // document.querySelector(".messageInput").style.border = "2px solid #ff0000"
+    document.getElementById("messageText").innerHTML= `Invalid Message Input`;
+    document.getElementById("messageText").style.color = "#ff0000";
   }
 }

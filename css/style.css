@@ -344,3 +344,64 @@ p span {
     padding: 3px 3px;
   }
 }
+
+@media only screen and (max-width: 360px) {
+  * {
+    font-size: 10px;
+  }
+  #appTitle {
+    position: absolute;
+    margin-top: 7%;
+    margin-left: 18%;
+    font-size: 12px;
+  }
+  .layoutTitle {
+    font-size: 15px;
+    margin-left: 40%;
+  }
+  .topbar {
+    height: 1%;
+    display: flex;
+    justify-content: space-between;
+    justify-content: flex-end;
+  }
+  .topbar img {
+    width: 12;
+    height: 12;
+  }
+  .sidebar {
+    width: 15%;
+    padding: 2px;
+  }
+  .sidebar ul {
+    margin-top: 60px;
+  }
+  .blurBackground {
+    min-height: 100%; 
+    max-height: 150%;
+  }
+  .buttons {
+    padding: 3px 3px;
+  }
+  .topbar ul {
+    margin-right: 5%;
+    margin-top: 2%;
+  }
+  .link {
+    font-size: 0px;
+  }
+  .postsCards{
+    margin-left: 19%;
+  }
+  .box {
+    width: 220px;
+    display: flex;
+    flex-direction: column;
+  }
+  .signin{
+    padding: 5px 5px;
+  }
+  .signup{
+    padding: 5px 5px;
+  }
+}

@@ -287,3 +287,60 @@ p span {
   }
 }
 
+@media only screen and (max-width: 540px) {
+  #appTitle {
+    margin-left: 18%;
+    font-size: medium;
+    margin-top: 5%;
+  }
+  .layoutTitle {
+    margin-left: 23%;
+  }
+  .topbar {
+    max-height: 10%;
+    display: flex;
+    justify-content: flex-end;
+  }
+  .topbar ul {
+    margin-top: 3%;
+    margin-right: 3%;
+    margin-left: 20%;
+    font-size: small;
+  }
+  .topbar li .link {
+    padding: 3px 3px;
+  }
+  .topbar img {
+    width: 15;
+    height: 15;
+  }
+  .postsCards {
+    margin-left: 30%;
+  }
+  .card {
+    display: flex;
+    align-content: center;
+  }
+  .link {
+    font-size: 0px;
+  }
+  .box {
+    width: 220px;
+  }
+  .sidebar {
+    width: 13%;
+  }
+  .sidebar {
+    font-size: small;
+  }
+  .buttons{
+    padding: 5px 5px;
+  }
+  .sidebar img {
+    width: 10;
+    height: 10;
+  }
+  .sidebar span button {
+    padding: 3px 3px;
+  }
+}
